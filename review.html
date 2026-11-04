@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- gradvault-build:6 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GradVault | Review Classification</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="app.css?v=5">
+</head>
+<body>
+<div class="app">
+    <aside class="sidebar">
+        <img class="logo" src="image/cfb44c0c-25e2-4d2b-98bd-57812180bb26.png" alt="GradVault">
+        <nav class="nav">
+            <a href="admin.html">Dashboard</a>
+            <a href="manage-users.html">Users</a>
+            <a href="manage-projects.html" class="active">Projects</a>
+            <a href="manage-categories.html">Categories</a>
+            <a href="browse.html">Search &amp; Browse</a>
+            <a href="requests.html">Requests</a>
+            <a href="profile.html">Profile</a>
+        </nav>
+        <div class="user">
+            <div class="avatar">AD</div>
+            <div><strong>Admin</strong><small>Administrator</small></div>
+        </div>
+    </aside>
+
+    <main class="main">
+        <p class="crumbs"><a href="admin.html">Dashboard</a> / Review classification</p>
+
+        <header class="page-head">
+            <h1>Review classification <span class="badge pending" id="statusBadge" style="vertical-align:middle;font-size:.8rem">Pending</span></h1>
+            <p>Check the suggested category, then approve or reject the project</p>
+        </header>
+
+        <div class="detail">
+            <div>
+                <section class="panel">
+                    <h2>A001 · Handwritten</h2>
+                    <p class="abstract">
+                        This project presents a system that recognizes handwritten Arabic text using deep learning.
+                        It preprocesses scanned images, segments lines and words, and classifies characters with a
+                        convolutional neural network. This is placeholder text: the real abstract comes from the database.
+                    </p>
+                </section>
+
+                <section class="panel" id="categoryPanel">
+                    <h2>Predicted category</h2>
+                    <p class="note" style="margin:0 0 16px;color:var(--muted);font-size:.92rem">Suggested automatically from the title and abstract. Choose the category that fits best.</p>
+
+                    <fieldset class="options" id="options" style="margin-bottom:14px">
+                        <label class="option">
+                            <input type="radio" name="category" value="Artificial Intelligence" checked>
+                            <span>Artificial Intelligence (suggested)</span><span class="pct">87%</span>
+                            <div class="track"><i style="width:87%"></i></div>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="category" value="Computer Vision">
+                            <span>Computer Vision</span><span class="pct">64%</span>
+                            <div class="track"><i style="width:64%"></i></div>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="category" value="Software Engineering">
+                            <span>Software Engineering</span><span class="pct">41%</span>
+                            <div class="track"><i style="width:41%"></i></div>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="category" value="__other__">
+                            <span>Another category</span>
+                        </label>
+                    </fieldset>
+
+                    <div class="f other-wrap" id="otherWrap" hidden>
+                        <label for="otherCategory">Choose a category</label>
+                        <select id="otherCategory">
+                            <option value="">Select category</option>
+                            <option>Artificial Intelligence</option>
+                            <option>Computer Vision</option>
+                            <option>Networking</option>
+                            <option>Software Engineering</option>
+                            <option>Security</option>
+                            <option>Databases</option>
+                        </select>
+                        <p class="err" id="otherCategoryErr" role="alert"></p>
+                    </div>
+                </section>
+
+                <section class="panel" id="decisionPanel">
+                    <h2>Decision</h2>
+                    <div class="f">
+                        <label for="reason">Reason for rejection <span style="color:var(--muted);font-weight:400">(required only when rejecting)</span></label>
+                        <textarea id="reason" placeholder="The student will see this message"></textarea>
+                        <p class="err" id="reasonErr" role="alert"></p>
+                    </div>
+                    <div class="actions">
+                        <button type="button" class="btn lg" id="approveBtn">Approve &amp; publish</button>
+                        <button type="button" class="btn danger lg" id="rejectBtn">Reject</button>
+                    </div>
+                </section>
+
+                <div class="done" id="done" role="status"></div>
+            </div>
+
+            <aside class="panel">
+                <h2>Project information</h2>
+                <dl class="meta-list">
+                    <div><dt>Team</dt><dd>Razan Yasin<br>Lina Hamdan</dd></div>
+                    <div><dt>Supervisor</dt><dd>Dr. Supervisor Name</dd></div>
+                    <div><dt>Department</dt><dd>Computer Science</dd></div>
+                    <div><dt>Year</dt><dd>2026</dd></div>
+                    <div><dt>Submitted</dt><dd>10/18/2026</dd></div>
+                </dl>
+                <div class="file-card">
+                    <div class="doc">PDF</div>
+                    <div><strong>Project report</strong><br><small>2.4 MB</small></div>
+                </div>
+                <div class="side-actions"><a class="btn ghost" href="#">View PDF</a></div>
+            </aside>
+        </div>
+    </main>
+</div>
+
+<dialog id="confirm">
+    <h3 id="confirmTitle"></h3>
+    <p id="confirmText"></p>
+    <div class="row-actions">
+        <button class="btn ghost" type="button" id="confirmNo">Cancel</button>
+        <button class="btn" type="button" id="confirmYes">Confirm</button>
+    </div>
+</dialog>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="manage.js?v=5"></script>
+<script src="review.js?v=5"></script>
+<script src="nav.js?v=5"></script>
+</body>
+</html>

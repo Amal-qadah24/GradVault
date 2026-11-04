@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- gradvault-build:6 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GradVault | Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="app.css?v=5">
+</head>
+<body>
+<div class="app">
+    <aside class="sidebar">
+        <img class="logo" src="image/cfb44c0c-25e2-4d2b-98bd-57812180bb26.png" alt="GradVault">
+        <nav class="nav">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="my-projects.html">My Project</a>
+            <a href="browse.html">Search &amp; Browse</a>
+            <a href="my-requests.html">My Requests</a>
+            <a href="profile.html" class="active">Profile</a>
+        </nav>
+        <div class="user">
+            <div class="avatar">RY</div>
+            <div><strong>Razan Yasin</strong><small>Student</small></div>
+        </div>
+    </aside>
+
+    <main class="main">
+        <header class="page-head">
+            <h1>Profile</h1>
+            <p>Manage your personal information and password</p>
+        </header>
+
+        <div class="two-col">
+            <section class="panel">
+                <div class="profile-head">
+                    <div class="avatar lg">RY</div>
+                    <div><strong>Razan Yasin</strong><small>Student</small></div>
+                </div>
+
+                <form id="profileForm" novalidate>
+                    <div class="form-grid">
+                        <div class="f full">
+                            <label for="fullName">Full name</label>
+                            <input type="text" id="fullName" value="Razan Yasin" autocomplete="name">
+                            <p class="err" id="fullNameErr" role="alert"></p>
+                        </div>
+                        <div class="f full">
+                            <label for="email">University email</label>
+                            <input type="email" id="email" value="1221001@student.birzeit.edu" readonly>
+                            <p class="hint">Contact the administrator to change your email.</p>
+                        </div>
+                        <div class="f">
+                            <label for="studentId">Student ID</label>
+                            <input type="text" id="studentId" value="1221001" readonly>
+                        </div>
+                        <div class="f">
+                            <label for="department">Department</label>
+                            <select id="department">
+                                <option selected>Computer Science</option>
+                                <option>Computer Engineering</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="actions"><button type="submit" class="btn lg">Save changes</button></div>
+                </form>
+            </section>
+
+            <section class="panel">
+                <h2>Change password</h2>
+                <form id="passwordForm" novalidate>
+                    <div class="form-grid">
+                        <div class="f full">
+                            <label for="currentPassword">Current password</label>
+                            <input type="password" id="currentPassword" autocomplete="current-password">
+                            <p class="err" id="currentPasswordErr" role="alert"></p>
+                        </div>
+                        <div class="f full">
+                            <label for="newPassword">New password</label>
+                            <input type="password" id="newPassword" autocomplete="new-password" placeholder="At least 8 characters">
+                            <p class="err" id="newPasswordErr" role="alert"></p>
+                        </div>
+                        <div class="f full">
+                            <label for="confirmNewPassword">Confirm new password</label>
+                            <input type="password" id="confirmNewPassword" autocomplete="new-password">
+                            <p class="err" id="confirmNewPasswordErr" role="alert"></p>
+                        </div>
+                    </div>
+                    <div class="actions"><button type="submit" class="btn lg">Update password</button></div>
+                </form>
+            </section>
+        </div>
+    </main>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+<script src="manage.js?v=5"></script>
+<script src="profile.js?v=5"></script>
+<script src="nav.js?v=5"></script>
+</body>
+</html>

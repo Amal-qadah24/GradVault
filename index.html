@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- gradvault-build:6 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GradVault | Smart Archiving for Graduation Projects</title>
+    <meta name="description" content="Browse and archive graduation projects. GradVault suggests a category for every project automatically.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="landing.css?v=5">
+</head>
+<body>
+
+<div class="top">
+    <div class="wrap">
+        <header class="site-header">
+            <a href="index.html"><img src="image/cfb44c0c-25e2-4d2b-98bd-57812180bb26.png" alt="GradVault"></a>
+            <nav class="nav-links" aria-label="Main">
+                <a href="browse.html">Browse projects</a>
+                <a href="#how">How it works</a>
+                <a href="#recent">Recent projects</a>
+            </nav>
+            <div class="header-actions">
+                <a class="btn outline sm" href="Gradvaulte.html">Log in</a>
+                <a class="btn light sm" href="register.html">Register</a>
+            </div>
+        </header>
+
+        <div class="hero">
+            <h1>Every graduation project, <span>archived and easy to find.</span></h1>
+            <p>GradVault is the digital archive for graduation projects. Upload a project and the system suggests its category. Browse published work by topic, department, supervisor, and year.</p>
+
+            <form class="search" action="browse.html" role="search">
+                <input type="search" name="q" placeholder="Search projects by title or topic..." aria-label="Search projects">
+                <button class="btn light" type="submit">Search</button>
+            </form>
+            <div class="chips" aria-label="Popular categories">
+                <a href="browse.html?category=Artificial%20Intelligence">Artificial Intelligence</a>
+                <a href="browse.html?category=Computer%20Vision">Computer Vision</a>
+                <a href="browse.html?category=Networking">Networking</a>
+                <a href="browse.html?category=Software%20Engineering">Software Engineering</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="block" id="how">
+    <div class="wrap">
+        <h2>How it works</h2>
+        <p class="lead">From a finished project to a searchable archive in three steps.</p>
+        <div class="steps">
+            <div class="step"><b>01</b><h3>Upload your project</h3><p>Students add the title, abstract, and PDF report of their graduation project.</p></div>
+            <div class="step"><b>02</b><h3>Get a suggested category</h3><p>The system reads the abstract and suggests the most fitting categories, with a confidence score for each.</p></div>
+            <div class="step"><b>03</b><h3>Reviewed and published</h3><p>An administrator checks the category and publishes the project, so everyone can find it.</p></div>
+        </div>
+    </div>
+</section>
+
+<section class="block alt" id="recent">
+    <div class="wrap">
+        <h2>Recently published</h2>
+        <p class="lead">A look at the latest projects in the archive.</p>
+        <div class="grid">
+            <a class="card" href="project.html">
+                <span class="tag">Artificial Intelligence</span>
+                <h3>Arabic Handwriting Recognition</h3>
+                <span class="meta">Computer Science · 2025</span>
+                <p>Short overview of the project goes here, limited to a few lines.</p>
+            </a>
+            <a class="card" href="project.html">
+                <span class="tag">Computer Vision</span>
+                <h3>Document Image Classification</h3>
+                <span class="meta">Computer Science · 2024</span>
+                <p>Short overview of the project goes here, limited to a few lines.</p>
+            </a>
+            <a class="card" href="project.html">
+                <span class="tag">Networking</span>
+                <h3>Campus Network Monitoring</h3>
+                <span class="meta">Computer Engineering · 2024</span>
+                <p>Short overview of the project goes here, limited to a few lines.</p>
+            </a>
+        </div>
+        <p class="more"><a class="btn" href="browse.html">Browse all projects</a></p>
+    </div>
+</section>
+
+<section class="cta">
+    <div class="wrap">
+        <h2>Ready to archive your project?</h2>
+        <p>Create an account with your university email and upload your project in minutes.</p>
+        <a class="btn light" href="register.html">Create an account</a>
+        <a class="btn outline" href="Gradvaulte.html">Log in</a>
+    </div>
+</section>
+
+<footer>
+    <div class="wrap">
+        <span>&copy; 2026 GradVault. Graduation project, Birzeit University.</span>
+        <span>Smart Archiving for Graduation Projects</span>
+    </div>
+</footer>
+
+</body>
+</html>

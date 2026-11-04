@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GradVault | File check</title>
+    <style>
+        body { margin: 0; padding: 40px 24px; font-family: system-ui, -apple-system, sans-serif; color: #0f2a3d; background: #f3f6f8; }
+        main { max-width: 760px; margin: 0 auto; }
+        h1 { margin: 0 0 6px; }
+        p { line-height: 1.6; color: #5d6f7d; }
+        .summary { margin: 24px 0; padding: 18px 20px; font-weight: 600; border-radius: 12px; }
+        .ok { color: #1b6b3a; background: #dff5e6; }
+        .bad { color: #9b2c1f; background: #fde2df; }
+        .wait { color: #4f6170; background: #e9edf0; }
+        table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 12px; overflow: hidden; }
+        th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid #dde5ea; font-size: .92rem; }
+        td:last-child { font-weight: 600; }
+        tr.old td:last-child { color: #9b2c1f; }
+        tr.good td:last-child { color: #1b6b3a; }
+        code { padding: 2px 6px; background: #e9edf0; border-radius: 4px; }
+    </style>
+</head>
+<body>
+<main>
+    <h1>File check</h1>
+    <p>This page tells you which files in <code id="where"></code> are the latest version (<code>gradvault-build:6</code>) and which are old or missing. Delete <code>check.html</code> when you are done.</p>
+    <div class="summary wait" id="summary">Checking...</div>
+    <table>
+        <thead><tr><th>File</th><th>Status</th></tr></thead>
+        <tbody id="rows"></tbody>
+    </table>
+</main>
+<script>
+    const BUILD = "gradvault-build:6";
+    const FILES = [
+        "403.html",
+        "404.html",
+        "Gradvaulte.html",
+        "admin-charts.js",
+        "admin.html",
+        "app.css",
+        "browse.html",
+        "browse.js",
+        "categories.js",
+        "dashboard.html",
+        "edit-project.html",
+        "edit.js",
+        "forgot-password.html",
+        "index.html",
+        "landing.css",
+        "manage-categories.html",
+        "manage-projects.html",
+        "manage-users.html",
+        "manage.js",
+        "my-projects.html",
+        "my-projects.js",
+        "my-requests.html",
+        "nav.js",
+        "profile.html",
+        "profile.js",
+        "project.html",
+        "recover.js",
+        "register.html",
+        "register.js",
+        "requests.html",
+        "requests.js",
+        "reset-password.html",
+        "review.html",
+        "review.js",
+        "script.js",
+        "style.css",
+        "team.js",
+        "upload.html",
+        "upload.js"
+    ];
+
+    document.getElementById("where").textContent = location.pathname.replace(/[^/]*$/, "");
+
+    (async function () {
+        const rows = document.getElementById("rows");
+        const old = [];
+
+        for (const file of FILES) {
+            let status;
+            try {
+                const res = await fetch(file + "?check=" + Date.now(), { cache: "no-store" });
+                if (!res.ok) status = "Missing (" + res.status + ")";
+                else status = (await res.text()).includes(BUILD) ? "Latest" : "Old version";
+            } catch (e) {
+                status = "Could not read";
+            }
+
+            const tr = document.createElement("tr");
+            const name = document.createElement("td");
+            const state = document.createElement("td");
+            name.textContent = file;
+            state.textContent = status;
+            tr.className = status === "Latest" ? "good" : "old";
+            tr.append(name, state);
+            rows.appendChild(tr);
+            if (status !== "Latest") old.push(file);
+        }
+
+        const box = document.getElementById("summary");
+        if (old.length === 0) {
+            box.className = "summary ok";
+            box.textContent = "All " + FILES.length + " files are the latest version.";
+        } else {
+            box.className = "summary bad";
+            box.textContent = old.length + " of " + FILES.length + " files must be replaced: " + old.join(", ");
+        }
+    })();
+</script>
+</body>
+</html>

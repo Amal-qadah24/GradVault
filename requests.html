@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- gradvault-build:6 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GradVault | Requests</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="app.css?v=5">
+</head>
+<body>
+<div class="app">
+    <aside class="sidebar">
+        <img class="logo" src="image/cfb44c0c-25e2-4d2b-98bd-57812180bb26.png" alt="GradVault">
+        <nav class="nav">
+            <a href="admin.html">Dashboard</a>
+            <a href="manage-users.html">Users</a>
+            <a href="manage-projects.html">Projects</a>
+            <a href="manage-categories.html">Categories</a>
+            <a href="browse.html">Search &amp; Browse</a>
+            <a href="requests.html" class="active">Requests</a>
+            <a href="profile.html">Profile</a>
+        </nav>
+        <div class="user">
+            <div class="avatar">AD</div>
+            <div><strong>Admin</strong><small>Administrator</small></div>
+        </div>
+    </aside>
+
+    <main class="main">
+        <header class="page-head">
+            <h1>Requests</h1>
+            <p>Review requests sent by students and approve or reject them</p>
+        </header>
+
+        <section class="panel">
+            <div class="toolbar">
+                <input type="search" id="search" placeholder="Search by ID, type, or owner..." aria-label="Search requests">
+                <select id="statusFilter" aria-label="Filter by status">
+                    <option value="">All statuses</option>
+                    <option value="pending">Pending</option>
+                    <option value="approved">Approved</option>
+                    <option value="rejected">Rejected</option>
+                </select>
+                <span class="count" id="count"></span>
+            </div>
+
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>ID</th><th>Type</th><th>Request</th><th>Owner</th><th>Date</th><th>Status</th><th>Actions</th></tr></thead>
+                    <tbody>
+                        <tr data-status="pending" data-message="Please update the abstract and replace the report file with the corrected version.">
+                            <td>R001</td><td>Update request</td><td>Update project info</td><td>Razan Yasin</td><td>10/18/2026</td>
+                            <td><span class="badge pending">Pending</span></td>
+                            <td><div class="row-actions">
+                                <button class="btn ghost sm view-request" type="button">View</button>
+                                <button class="btn sm decide-request" data-decision="approved" type="button">Approve</button>
+                                <button class="btn danger sm decide-request" data-decision="rejected" type="button">Reject</button>
+                            </div></td>
+                        </tr>
+                        <tr data-status="pending" data-message="The predicted category is wrong. This project is about networking, not AI.">
+                            <td>R002</td><td>Category change</td><td>Change category to Networking</td><td>Omar Khalil</td><td>10/17/2026</td>
+                            <td><span class="badge pending">Pending</span></td>
+                            <td><div class="row-actions">
+                                <button class="btn ghost sm view-request" type="button">View</button>
+                                <button class="btn sm decide-request" data-decision="approved" type="button">Approve</button>
+                                <button class="btn danger sm decide-request" data-decision="rejected" type="button">Reject</button>
+                            </div></td>
+                        </tr>
+                        <tr data-status="approved" data-message="Remove my project from the public list.">
+                            <td>R003</td><td>Unpublish request</td><td>Unpublish my project</td><td>Lina Hamdan</td><td>10/10/2026</td>
+                            <td><span class="badge approved">Approved</span></td>
+                            <td><div class="row-actions"><button class="btn ghost sm view-request" type="button">View</button></div></td>
+                        </tr>
+                        <tr data-status="rejected" data-message="Delete my project permanently.">
+                            <td>R004</td><td>Delete request</td><td>Delete project</td><td>Omar Khalil</td><td>10/02/2026</td>
+                            <td><span class="badge rejected">Rejected</span></td>
+                            <td><div class="row-actions"><button class="btn ghost sm view-request" type="button">View</button></div></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="empty" id="empty">No requests match your search.</p>
+            </div>
+        </section>
+    </main>
+</div>
+
+<dialog id="confirm">
+    <h3 id="confirmTitle">Are you sure?</h3>
+    <p id="confirmText"></p>
+    <div class="row-actions">
+        <button class="btn ghost" type="button" id="confirmNo">Cancel</button>
+        <button class="btn danger-fill" type="button" id="confirmYes">Confirm</button>
+    </div>
+</dialog>
+
+<dialog id="detail">
+    <h3 id="detailTitle">Request</h3>
+    <dl class="meta-list" id="detailList"></dl>
+    <div class="row-actions"><button class="btn" type="button" id="detailClose">Close</button></div>
+</dialog>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="manage.js?v=5"></script>
+<script src="nav.js?v=5"></script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- gradvault-build:6 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GradVault | Upload Project</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="app.css?v=5">
+</head>
+<body>
+<div class="app">
+    <aside class="sidebar">
+        <img class="logo" src="image/cfb44c0c-25e2-4d2b-98bd-57812180bb26.png" alt="GradVault">
+        <nav class="nav">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="my-projects.html" class="active">My Project</a>
+            <a href="browse.html">Search &amp; Browse</a>
+            <a href="my-requests.html">My Requests</a>
+            <a href="profile.html">Profile</a>
+        </nav>
+        <div class="user">
+            <div class="avatar">RY</div>
+            <div><strong>Razan Yasin</strong><small>Student</small></div>
+        </div>
+    </aside>
+
+    <main class="main">
+        <p class="crumbs"><a href="my-projects.html">My Project</a> / Upload</p>
+        <header class="page-head">
+            <h1>Upload project</h1>
+            <p>Add your graduation project. GradVault suggests a category automatically.</p>
+        </header>
+
+        <!-- Step 1: details + file -->
+        <section class="panel" id="uploadPanel">
+            <h2>Project details</h2>
+            <form id="uploadForm" novalidate>
+                <div class="form-grid">
+                    <div class="f full">
+                        <label for="title">Project title</label>
+                        <input type="text" id="title" placeholder="Enter the project title">
+                        <p class="err" id="titleErr" role="alert"></p>
+                    </div>
+
+                    <div class="f">
+                        <label for="supervisor">Supervisor</label>
+                        <input type="text" id="supervisor" placeholder="Dr. name">
+                        <p class="err" id="supervisorErr" role="alert"></p>
+                    </div>
+
+                    <div class="f">
+                        <label for="department">Department</label>
+                        <select id="department">
+                            <option value="">Select department</option>
+                            <option>Computer Science</option>
+                            <option>Computer Engineering</option>
+                            <option>Other</option>
+                        </select>
+                        <p class="err" id="departmentErr" role="alert"></p>
+                    </div>
+
+                    <div class="f">
+                        <label for="year">Year</label>
+                        <select id="year"></select>
+                    </div>
+
+                    <div class="f full">
+                        <label for="abstract">Abstract</label>
+                        <textarea id="abstract" placeholder="Paste the abstract. A longer abstract gives a better category suggestion."></textarea>
+                        <p class="err" id="abstractErr" role="alert"></p>
+                    </div>
+
+                    <div class="f full" id="teamSection">
+                        <label for="memberId">Team members <span class="opt">(optional)</span></label>
+                        <p class="hint">Working with other students? Add them by student ID and the project will also appear in their account. Skip this if you are the only student.</p>
+                        <div class="member-add">
+                            <input type="text" id="memberId" inputmode="numeric" maxlength="7" placeholder="Student ID, e.g. 1221002" autocomplete="off">
+                            <button type="button" class="btn ghost" id="addMember">Add student</button>
+                        </div>
+                        <p class="err" id="memberErr" role="alert"></p>
+                        <ul class="members" id="memberList" aria-label="Team members">
+                            <li class="owner"><span>Razan Yasin <small>(you) · 1221001</small></span></li>
+                        </ul>
+                    </div>
+
+                    <div class="f full">
+                        <label for="file">Project file (PDF)</label>
+                        <label class="dropzone" id="dropzone" for="file">
+                            <input type="file" id="file" accept="application/pdf,.pdf">
+                            <strong>Drag &amp; drop your PDF here, or click to browse</strong>
+                            <small>PDF only, up to 20 MB</small>
+                        </label>
+                        <div class="file-chip" id="fileChip">
+                            <span id="fileName"></span>
+                            <button type="button" id="removeFile">Remove</button>
+                        </div>
+                        <p class="err" id="fileErr" role="alert"></p>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button type="submit" class="btn lg" id="submitBtn">Upload &amp; classify</button>
+                </div>
+
+                <div class="progress" id="progress">
+                    <p id="progressText">Uploading...</p>
+                    <div class="track"><i id="progressBar"></i></div>
+                </div>
+            </form>
+        </section>
+
+        <!-- Step 2: review predicted category -->
+        <section class="panel result" id="resultPanel">
+            <h2>Review the suggested category</h2>
+            <p class="note">Pick the category that fits your project best. An administrator will review it before the project is published.</p>
+
+            <fieldset class="options" id="options"></fieldset>
+
+            <div class="f other-wrap" id="otherWrap" hidden>
+                <label for="otherCategory">Choose another category</label>
+                <select id="otherCategory">
+                    <option value="">Select category</option>
+                    <option>Artificial Intelligence</option>
+                    <option>Computer Vision</option>
+                    <option>Networking</option>
+                    <option>Software Engineering</option>
+                    <option>Security</option>
+                    <option>Databases</option>
+                </select>
+            </div>
+
+            <div class="actions">
+                <button type="button" class="btn lg" id="confirmBtn">Confirm &amp; submit</button>
+                <button type="button" class="btn ghost lg" id="backBtn">Back</button>
+            </div>
+        </section>
+
+        <div class="done" id="done" role="status">
+            Your project was submitted. Status: Pending review.
+            <a href="dashboard.html" style="text-decoration: underline;">Back to dashboard</a>
+        </div>
+    </main>
+</div>
+
+<script src="team.js?v=5"></script>
+<script src="upload.js?v=5"></script>
+<script src="nav.js?v=5"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- gradvault-build:6 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GradVault | Manage Projects</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="app.css?v=5">
+</head>
+<body>
+<div class="app">
+    <aside class="sidebar">
+        <img class="logo" src="image/cfb44c0c-25e2-4d2b-98bd-57812180bb26.png" alt="GradVault">
+        <nav class="nav">
+            <a href="admin.html">Dashboard</a>
+            <a href="manage-users.html">Users</a>
+            <a href="manage-projects.html" class="active">Projects</a>
+            <a href="manage-categories.html">Categories</a>
+            <a href="browse.html">Search &amp; Browse</a>
+            <a href="requests.html">Requests</a>
+            <a href="profile.html">Profile</a>
+        </nav>
+        <div class="user">
+            <div class="avatar">AD</div>
+            <div><strong>Admin</strong><small>Administrator</small></div>
+        </div>
+    </aside>
+
+    <main class="main">
+        <header class="page-head">
+            <h1>Manage projects</h1>
+            <p>Publish, unpublish, or delete graduation projects</p>
+        </header>
+
+        <section class="panel">
+            <div class="toolbar">
+                <input type="search" id="search" placeholder="Search by title, student, or category..." aria-label="Search projects">
+                <select id="statusFilter" aria-label="Filter by status">
+                    <option value="">All statuses</option>
+                    <option value="published">Published</option>
+                    <option value="unpublished">Unpublished</option>
+                    <option value="pending">Pending</option>
+                </select>
+                <span class="count" id="count"></span>
+            </div>
+
+            <div class="table-wrap">
+                <table id="projectsTable">
+                    <thead><tr><th>ID</th><th>Title</th><th>Student</th><th>Category</th><th>Year</th><th>Status</th><th>Actions</th></tr></thead>
+                    <tbody>
+                        <tr data-status="published">
+                            <td>P001</td><td>Arabic Handwriting Recognition</td><td>Razan Yasin</td><td>Artificial Intelligence</td><td>2025</td>
+                            <td><span class="badge published">Published</span></td>
+                            <td><div class="row-actions">
+                                <a class="btn ghost sm" href="project.html">View</a>
+                                <button class="btn ghost sm toggle-publish" type="button">Unpublish</button>
+                                <button class="btn danger sm delete-project" type="button">Delete</button>
+                            </div></td>
+                        </tr>
+                        <tr data-status="published">
+                            <td>P002</td><td>Document Image Classification</td><td>Lina Hamdan</td><td>Computer Vision</td><td>2024</td>
+                            <td><span class="badge published">Published</span></td>
+                            <td><div class="row-actions">
+                                <a class="btn ghost sm" href="project.html">View</a>
+                                <button class="btn ghost sm toggle-publish" type="button">Unpublish</button>
+                                <button class="btn danger sm delete-project" type="button">Delete</button>
+                            </div></td>
+                        </tr>
+                        <tr data-status="unpublished">
+                            <td>P003</td><td>Campus Network Monitoring</td><td>Omar Khalil</td><td>Networking</td><td>2024</td>
+                            <td><span class="badge unpublished">Unpublished</span></td>
+                            <td><div class="row-actions">
+                                <a class="btn ghost sm" href="project.html">View</a>
+                                <button class="btn sm toggle-publish" type="button">Publish</button>
+                                <button class="btn danger sm delete-project" type="button">Delete</button>
+                            </div></td>
+                        </tr>
+                        <tr data-status="pending">
+                            <td>A001</td><td>Handwritten</td><td>Razan Yasin</td><td>Artificial Intelligence</td><td>2025</td>
+                            <td><span class="badge pending">Pending</span></td>
+                            <td><div class="row-actions">
+                                <a class="btn sm" href="review.html">Review</a>
+                                <button class="btn danger sm delete-project" type="button">Delete</button>
+                            </div></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="empty" id="empty">No projects match your search.</p>
+            </div>
+        </section>
+    </main>
+</div>
+
+<dialog id="confirm">
+    <h3 id="confirmTitle">Are you sure?</h3>
+    <p id="confirmText"></p>
+    <div class="row-actions">
+        <button class="btn ghost" type="button" id="confirmNo">Cancel</button>
+        <button class="btn danger-fill" type="button" id="confirmYes">Confirm</button>
+    </div>
+</dialog>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="manage.js?v=5"></script>
+<script src="nav.js?v=5"></script>
+</body>
+</html>

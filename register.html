@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- gradvault-build:6 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GradVault | Register</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=5">
+</head>
+<body>
+
+    <main class="login-container">
+
+        <section class="brand-section">
+            <img src="image/cfb44c0c-25e2-4d2b-98bd-57812180bb26.png"
+                 alt="GradVault Logo"
+                 class="brand-logo">
+            <p class="brand-tagline">Smart Archiving for<br>Graduation Projects</p>
+        </section>
+
+        <section class="login-section">
+            <form id="registerForm" novalidate>
+                <h1>Create your account</h1>
+                <p class="subtitle">Register to upload and browse graduation projects</p>
+
+                <div class="field">
+                    <label for="fullName">Full name</label>
+                    <input type="text" id="fullName" name="fullName"
+                           placeholder="Enter your full name"
+                           autocomplete="name" required>
+                    <p class="error" id="fullNameError" role="alert"></p>
+                </div>
+
+                <div class="field">
+                    <label for="email">University email</label>
+                    <input type="email" id="email" name="email"
+                           placeholder="name@student.birzeit.edu"
+                           autocomplete="email" required>
+                    <p class="error" id="emailError" role="alert"></p>
+                </div>
+
+                <div class="row">
+                    <div class="field">
+                        <label for="studentId">Student ID</label>
+                        <input type="text" id="studentId" name="studentId"
+                               placeholder="e.g. 1221630"
+                               inputmode="numeric" maxlength="7" required>
+                        <p class="error" id="studentIdError" role="alert"></p>
+                    </div>
+
+                    <div class="field">
+                        <label for="department">Department</label>
+                        <select id="department" name="department" required>
+                            <option value="">Select department</option>
+                            <option>Computer Science</option>
+                            <option>Computer Engineering</option>
+                            <option>Other</option>
+                        </select>
+                        <p class="error" id="departmentError" role="alert"></p>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="password">Password</label>
+                    <div class="password-wrap">
+                        <input type="password" id="password" name="password"
+                               placeholder="At least 8 characters"
+                               autocomplete="new-password" required>
+                        <button type="button" class="toggle-password" data-target="password" aria-label="Show password">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none"
+                                 stroke="currentColor" stroke-width="2"
+                                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="strength" id="strength" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+                    <p class="hint" id="strengthText"></p>
+                    <p class="error" id="passwordError" role="alert"></p>
+                </div>
+
+                <div class="field">
+                    <label for="confirmPassword">Confirm password</label>
+                    <div class="password-wrap">
+                        <input type="password" id="confirmPassword" name="confirmPassword"
+                               placeholder="Re-enter your password"
+                               autocomplete="new-password" required>
+                        <button type="button" class="toggle-password" data-target="confirmPassword" aria-label="Show password">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none"
+                                 stroke="currentColor" stroke-width="2"
+                                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="error" id="confirmPasswordError" role="alert"></p>
+                </div>
+
+                <p class="form-message" id="formMessage" role="status"></p>
+
+                <button type="submit" class="btn-login" id="registerBtn">
+                    <span class="btn-label">Create account</span>
+                    <span class="spinner" aria-hidden="true"></span>
+                </button>
+
+                <p class="signup-text">
+                    Already have an account?
+                    <a href="Gradvaulte.html">Log in</a>
+                </p>
+            </form>
+        </section>
+
+    </main>
+
+    <script src="register.js?v=5"></script>
+</body>
+</html>

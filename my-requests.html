@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- gradvault-build:6 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GradVault | My Requests</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="app.css?v=5">
+</head>
+<body>
+<div class="app">
+    <aside class="sidebar">
+        <img class="logo" src="image/cfb44c0c-25e2-4d2b-98bd-57812180bb26.png" alt="GradVault">
+        <nav class="nav">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="my-projects.html">My Project</a>
+            <a href="browse.html">Search &amp; Browse</a>
+            <a href="my-requests.html" class="active">My Requests</a>
+            <a href="profile.html">Profile</a>
+        </nav>
+        <div class="user">
+            <div class="avatar">RY</div>
+            <div><strong>Razan Yasin</strong><small>Student</small></div>
+        </div>
+    </aside>
+
+    <main class="main">
+        <header class="page-head">
+            <h1>My requests</h1>
+            <p>Ask the administrator to update, change the category of, or unpublish your project</p>
+        </header>
+
+        <section class="panel">
+            <h2>New request</h2>
+            <form id="requestForm" novalidate>
+                <div class="form-grid">
+                    <div class="f">
+                        <label for="reqType">Request type</label>
+                        <select id="reqType">
+                            <option value="">Select type</option>
+                            <option>Update request</option>
+                            <option>Category change</option>
+                            <option>Unpublish request</option>
+                            <option>Delete request</option>
+                        </select>
+                        <p class="err" id="reqTypeErr" role="alert"></p>
+                    </div>
+                    <div class="f">
+                        <label for="reqProject">Project</label>
+                        <select id="reqProject">
+                            <option>Handwritten (#001)</option>
+                        </select>
+                    </div>
+                    <div class="f full">
+                        <label for="reqMessage">Details</label>
+                        <textarea id="reqMessage" placeholder="Explain what you need and why"></textarea>
+                        <p class="err" id="reqMessageErr" role="alert"></p>
+                    </div>
+                </div>
+                <div class="actions"><button type="submit" class="btn lg">Send request</button></div>
+            </form>
+        </section>
+
+        <section class="panel">
+            <div class="toolbar">
+                <input type="search" id="search" placeholder="Search my requests..." aria-label="Search requests">
+                <select id="statusFilter" aria-label="Filter by status">
+                    <option value="">All statuses</option>
+                    <option value="pending">Pending</option>
+                    <option value="approved">Approved</option>
+                    <option value="rejected">Rejected</option>
+                </select>
+                <span class="count" id="count"></span>
+            </div>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>ID</th><th>Type</th><th>Project</th><th>Date</th><th>Status</th></tr></thead>
+                    <tbody id="requestRows">
+                        <tr data-status="pending"><td>R001</td><td>Update request</td><td>Handwritten (#001)</td><td>10/18/2026</td><td><span class="badge pending">Pending</span></td></tr>
+                        <tr data-status="approved"><td>R000</td><td>Category change</td><td>Handwritten (#001)</td><td>10/05/2026</td><td><span class="badge approved">Approved</span></td></tr>
+                    </tbody>
+                </table>
+                <p class="empty" id="empty">No requests found.</p>
+            </div>
+        </section>
+    </main>
+</div>
+
+<dialog id="confirm"><h3 id="confirmTitle"></h3><p id="confirmText"></p>
+    <div class="row-actions"><button class="btn ghost" type="button" id="confirmNo">Cancel</button><button class="btn danger-fill" type="button" id="confirmYes">Confirm</button></div>
+</dialog>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="manage.js?v=5"></script>
+<script src="requests.js?v=5"></script>
+<script src="nav.js?v=5"></script>
+</body>
+</html>

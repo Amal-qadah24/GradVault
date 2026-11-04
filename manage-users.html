@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- gradvault-build:6 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GradVault | Manage Users</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="app.css?v=5">
+</head>
+<body>
+<div class="app">
+    <aside class="sidebar">
+        <img class="logo" src="image/cfb44c0c-25e2-4d2b-98bd-57812180bb26.png" alt="GradVault">
+        <nav class="nav">
+            <a href="admin.html">Dashboard</a>
+            <a href="manage-users.html" class="active">Users</a>
+            <a href="manage-projects.html">Projects</a>
+            <a href="manage-categories.html">Categories</a>
+            <a href="browse.html">Search &amp; Browse</a>
+            <a href="requests.html">Requests</a>
+            <a href="profile.html">Profile</a>
+        </nav>
+        <div class="user">
+            <div class="avatar">AD</div>
+            <div><strong>Admin</strong><small>Administrator</small></div>
+        </div>
+    </aside>
+
+    <main class="main">
+        <header class="page-head">
+            <h1>Manage users</h1>
+            <p>Search accounts, change roles, and disable or enable access</p>
+        </header>
+
+        <section class="panel">
+            <div class="toolbar">
+                <input type="search" id="search" placeholder="Search by name, email, or ID..." aria-label="Search users">
+                <select id="roleFilter" aria-label="Filter by role">
+                    <option value="">All roles</option>
+                    <option>Student</option>
+                    <option>Administrator</option>
+                </select>
+                <select id="statusFilter" aria-label="Filter by status">
+                    <option value="">All statuses</option>
+                    <option value="active">Active</option>
+                    <option value="disabled">Disabled</option>
+                </select>
+                <span class="count" id="count"></span>
+            </div>
+
+            <div class="table-wrap">
+                <table id="usersTable">
+                    <thead><tr><th>User</th><th>Student ID</th><th>Department</th><th>Role</th><th>Status</th><th>Actions</th></tr></thead>
+                    <tbody>
+                        <tr data-status="active" data-role="Student">
+                            <td><div class="who"><strong>Razan Yasin</strong><small>1221001@student.birzeit.edu</small></div></td>
+                            <td>1221001</td><td>Computer Science</td>
+                            <td><select class="cell-select role-select" aria-label="Role"><option selected>Student</option><option>Administrator</option></select></td>
+                            <td><span class="badge active">Active</span></td>
+                            <td><div class="row-actions"><button class="btn danger sm toggle-user" type="button">Disable</button></div></td>
+                        </tr>
+                        <tr data-status="active" data-role="Student">
+                            <td><div class="who"><strong>Lina Hamdan</strong><small>1221002@student.birzeit.edu</small></div></td>
+                            <td>1221002</td><td>Computer Engineering</td>
+                            <td><select class="cell-select role-select" aria-label="Role"><option selected>Student</option><option>Administrator</option></select></td>
+                            <td><span class="badge active">Active</span></td>
+                            <td><div class="row-actions"><button class="btn danger sm toggle-user" type="button">Disable</button></div></td>
+                        </tr>
+                        <tr data-status="disabled" data-role="Student">
+                            <td><div class="who"><strong>Omar Khalil</strong><small>1221003@student.birzeit.edu</small></div></td>
+                            <td>1221003</td><td>Computer Science</td>
+                            <td><select class="cell-select role-select" aria-label="Role"><option selected>Student</option><option>Administrator</option></select></td>
+                            <td><span class="badge disabled">Disabled</span></td>
+                            <td><div class="row-actions"><button class="btn ghost sm toggle-user" type="button">Enable</button></div></td>
+                        </tr>
+                        <tr data-status="active" data-role="Administrator">
+                            <td><div class="who"><strong>Admin</strong><small>admin@birzeit.edu</small></div></td>
+                            <td>-</td><td>Computer Science</td>
+                            <td><select class="cell-select role-select" aria-label="Role"><option>Student</option><option selected>Administrator</option></select></td>
+                            <td><span class="badge active">Active</span></td>
+                            <td><div class="row-actions"><button class="btn danger sm toggle-user" type="button">Disable</button></div></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="empty" id="empty">No users match your search.</p>
+            </div>
+        </section>
+    </main>
+</div>
+
+<dialog id="confirm">
+    <h3 id="confirmTitle">Are you sure?</h3>
+    <p id="confirmText"></p>
+    <div class="row-actions">
+        <button class="btn ghost" type="button" id="confirmNo">Cancel</button>
+        <button class="btn danger-fill" type="button" id="confirmYes">Confirm</button>
+    </div>
+</dialog>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="manage.js?v=5"></script>
+<script src="nav.js?v=5"></script>
+</body>
+</html>

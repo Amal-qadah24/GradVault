@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- gradvault-build:6 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GradVault | My Project</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="app.css?v=5">
+</head>
+<body>
+<div class="app">
+    <aside class="sidebar">
+        <img class="logo" src="image/cfb44c0c-25e2-4d2b-98bd-57812180bb26.png" alt="GradVault">
+        <nav class="nav">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="my-projects.html" class="active">My Project</a>
+            <a href="browse.html">Search &amp; Browse</a>
+            <a href="my-requests.html">My Requests</a>
+            <a href="profile.html">Profile</a>
+        </nav>
+        <div class="user">
+            <div class="avatar">RY</div>
+            <div><strong>Razan Yasin</strong><small>Student</small></div>
+        </div>
+    </aside>
+
+    <main class="main">
+
+        <!-- The student has no project yet -->
+        <section class="panel empty-state" id="noProject" hidden>
+            <h2>You have not uploaded a project yet</h2>
+            <p>Upload your graduation project and GradVault will suggest its category.</p>
+            <a class="btn lg" href="upload.html">Upload project</a>
+        </section>
+
+        <!-- The student's project -->
+        <div id="projectView">
+            <header class="page-head head-row">
+                <div>
+                    <div class="tags">
+                        <span class="tag">Artificial Intelligence</span>
+                        <span class="badge pending" id="statusBadge">Pending review</span>
+                    </div>
+                    <h1 style="margin-top:10px">Handwritten</h1>
+                    <p>Your graduation project · Project #002</p>
+                </div>
+                <div class="row-actions" id="projectActions"></div>
+            </header>
+
+            <div class="banner info" id="statusBanner" role="status"></div>
+
+            <div class="detail">
+                <div>
+                    <section class="panel">
+                        <h2>Abstract</h2>
+                        <p class="abstract">
+                            This project presents a system that recognizes handwritten Arabic text using deep learning.
+                            It preprocesses scanned images, segments lines and words, and classifies characters with a
+                            convolutional neural network. This is placeholder text: the real abstract comes from the database.
+                        </p>
+                    </section>
+
+                    <section class="panel">
+                        <h2>Team</h2>
+                        <ul class="team-list">
+                            <li><div class="avatar">RY</div><div><strong>Razan Yasin</strong><small>You · Student ID 1221001</small></div></li>
+                            <li><div class="avatar">LH</div><div><strong>Lina Hamdan</strong><small>Team member · Student ID 1221002</small></div></li>
+                        </ul>
+                    </section>
+
+                    <section class="panel">
+                        <h2>Submission history</h2>
+                        <div class="table-wrap">
+                            <table>
+                                <thead><tr><th>ID</th><th>Title</th><th>Submitted</th><th>Status</th></tr></thead>
+                                <tbody>
+                                    <tr><td>#002</td><td>Handwritten</td><td>10/18/2026</td><td><span class="badge pending">Pending</span></td></tr>
+                                    <tr><td>#001</td><td>Handwriting Draft</td><td>10/02/2026</td><td><span class="badge rejected">Rejected</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+
+                <aside class="panel">
+                    <h2>Project information</h2>
+                    <dl class="meta-list">
+                        <div><dt>Supervisor</dt><dd>Dr. Supervisor Name</dd></div>
+                        <div><dt>Department</dt><dd>Computer Science</dd></div>
+                        <div><dt>Year</dt><dd>2026</dd></div>
+                        <div><dt>Submitted</dt><dd>10/18/2026</dd></div>
+                    </dl>
+                    <div class="file-card">
+                        <div class="doc">PDF</div>
+                        <div><strong>Project report</strong><br><small>2.4 MB</small></div>
+                    </div>
+                    <div class="side-actions">
+                        <a class="btn ghost" href="#">View PDF</a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script src="my-projects.js?v=5"></script>
+</body>
+</html>

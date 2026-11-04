@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- gradvault-build:6 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GradVault | Edit Project</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="app.css?v=5">
+</head>
+<body>
+<div class="app">
+    <aside class="sidebar">
+        <img class="logo" src="image/cfb44c0c-25e2-4d2b-98bd-57812180bb26.png" alt="GradVault">
+        <nav class="nav">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="my-projects.html" class="active">My Project</a>
+            <a href="browse.html">Search &amp; Browse</a>
+            <a href="my-requests.html">My Requests</a>
+            <a href="profile.html">Profile</a>
+        </nav>
+        <div class="user">
+            <div class="avatar">RY</div>
+            <div><strong>Razan Yasin</strong><small>Student</small></div>
+        </div>
+    </aside>
+
+    <main class="main">
+        <p class="crumbs"><a href="my-projects.html">My Project</a> / Edit #001</p>
+
+        <header class="page-head">
+            <h1>Edit and resubmit</h1>
+            <p>Fix the points below, then send your project for review again.</p>
+        </header>
+
+        <div class="banner warn" role="note">
+            <strong>Rejected on 10/02/2026.</strong> Reason: the abstract is too short. Add more detail and resubmit.
+        </div>
+
+        <section class="panel" id="editPanel">
+            <h2>Project details</h2>
+            <form id="editForm" novalidate>
+                <div class="form-grid">
+                    <div class="f full">
+                        <label for="title">Project title</label>
+                        <input type="text" id="title" value="Handwriting Draft">
+                        <p class="err" id="titleErr" role="alert"></p>
+                    </div>
+
+                    <div class="f">
+                        <label for="supervisor">Supervisor</label>
+                        <input type="text" id="supervisor" value="Dr. Supervisor Name">
+                        <p class="err" id="supervisorErr" role="alert"></p>
+                    </div>
+
+                    <div class="f">
+                        <label for="department">Department</label>
+                        <select id="department">
+                            <option value="">Select department</option>
+                            <option selected>Computer Science</option>
+                            <option>Computer Engineering</option>
+                            <option>Other</option>
+                        </select>
+                        <p class="err" id="departmentErr" role="alert"></p>
+                    </div>
+
+                    <div class="f">
+                        <label for="year">Year</label>
+                        <select id="year"></select>
+                    </div>
+
+                    <div class="f full">
+                        <label for="abstract">Abstract</label>
+                        <textarea id="abstract">A system that recognizes handwriting.</textarea>
+                        <p class="err" id="abstractErr" role="alert"></p>
+                    </div>
+
+                    <div class="f full" id="teamSection" data-members="1221002:Lina Hamdan">
+                        <label for="memberId">Team members <span class="opt">(optional)</span></label>
+                        <p class="hint">Working with other students? Add them by student ID and the project will also appear in their account. Skip this if you are the only student.</p>
+                        <div class="member-add">
+                            <input type="text" id="memberId" inputmode="numeric" maxlength="7" placeholder="Student ID, e.g. 1221002" autocomplete="off">
+                            <button type="button" class="btn ghost" id="addMember">Add student</button>
+                        </div>
+                        <p class="err" id="memberErr" role="alert"></p>
+                        <ul class="members" id="memberList" aria-label="Team members">
+                            <li class="owner"><span>Razan Yasin <small>(you) · 1221001</small></span></li>
+                        </ul>
+                    </div>
+
+                    <div class="f full">
+                        <label for="file">Project file (PDF)</label>
+                        <div class="file-chip show" id="currentFile">
+                            <span id="fileName">Handwriting_Draft.pdf (1.8 MB)</span>
+                            <span style="color:var(--muted)">Current file</span>
+                        </div>
+                        <label class="dropzone" id="dropzone" for="file" style="margin-top:12px;padding:22px 20px">
+                            <input type="file" id="file" accept="application/pdf,.pdf">
+                            <strong>Replace the file (optional)</strong>
+                            <small>Drag &amp; drop a PDF here, or click to browse. Up to 20 MB</small>
+                        </label>
+                        <p class="err" id="fileErr" role="alert"></p>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button type="submit" class="btn lg" id="submitBtn">Resubmit for review</button>
+                    <a class="btn ghost lg" href="my-projects.html">Cancel</a>
+                </div>
+                <p style="margin:14px 0 0;font-size:.88rem;color:var(--muted)">The category is suggested again after you resubmit, and the administrator reviews it.</p>
+            </form>
+        </section>
+
+        <div class="done" id="done" role="status">
+            Your project was resubmitted. Status: Pending review.
+            <a href="my-projects.html" style="text-decoration:underline">Back to my projects</a>
+        </div>
+    </main>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+<script src="manage.js?v=5"></script>
+<script src="team.js?v=5"></script>
+<script src="edit.js?v=5"></script>
+<script src="nav.js?v=5"></script>
+</body>
+</html>

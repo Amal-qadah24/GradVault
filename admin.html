@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- gradvault-build:6 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GradVault | Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="app.css?v=5">
+</head>
+<body>
+<div class="app">
+    <aside class="sidebar">
+        <img class="logo" src="image/cfb44c0c-25e2-4d2b-98bd-57812180bb26.png" alt="GradVault">
+        <nav class="nav">
+            <a href="admin.html" class="active">Dashboard</a>
+            <a href="manage-users.html">Users</a>
+            <a href="manage-projects.html">Projects</a>
+            <a href="manage-categories.html">Categories</a>
+            <a href="browse.html">Search &amp; Browse</a>
+            <a href="requests.html">Requests</a>
+            <a href="profile.html">Profile</a>
+        </nav>
+        <div class="user">
+            <div class="avatar">AD</div>
+            <div><strong>Admin</strong><small>Administrator</small></div>
+        </div>
+    </aside>
+
+    <main class="main">
+        <div class="topbar"><input type="search" placeholder="Search for project..." aria-label="Search for project"></div>
+
+        <header class="page-head">
+            <h1>Admin Dashboard</h1>
+            <p>Manage students, projects, and categories</p>
+        </header>
+
+        <section class="stats">
+            <div class="stat"><span>Total projects</span><strong>128</strong></div>
+            <div class="stat"><span>Pending review</span><strong>5</strong></div>
+            <div class="stat"><span>Requests</span><strong>3</strong></div>
+            <div class="stat"><span>Users</span><strong>240</strong></div>
+        </section>
+
+        <section class="two-col" style="margin-bottom:24px">
+            <div class="panel">
+                <h2>Projects by category</h2>
+                <div class="chart-box"><canvas id="catChart" role="img" aria-label="Bar chart of projects per category"></canvas></div>
+            </div>
+            <div class="panel">
+                <h2>Projects by year</h2>
+                <div class="chart-box"><canvas id="yearChart" role="img" aria-label="Bar chart of projects per year"></canvas></div>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>Pending AI classification</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>ID</th><th>Title</th><th>Predicted category</th><th>Actions</th></tr></thead>
+                    <tbody>
+                        <tr><td>A001</td><td>Handwritten</td><td>AI</td><td><a class="btn" href="review.html">Review</a></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>Recent requests</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>ID</th><th>Type</th><th>Request</th><th>Owner</th><th>Status</th><th>Actions</th></tr></thead>
+                    <tbody>
+                        <tr><td>R001</td><td>Notification</td><td>Update request</td><td>Razan Yasin</td><td><span class="badge pending">Pending</span></td><td><a class="btn ghost" href="#">View</a></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="admin-charts.js?v=5"></script>
+<script src="nav.js?v=5"></script>
+</body>
+</html>

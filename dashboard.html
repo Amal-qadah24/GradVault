@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- gradvault-build:6 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GradVault | Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="app.css?v=5">
+</head>
+<body>
+<div class="app">
+    <aside class="sidebar">
+        <img class="logo" src="image/cfb44c0c-25e2-4d2b-98bd-57812180bb26.png" alt="GradVault">
+        <nav class="nav">
+            <a href="dashboard.html" class="active">Dashboard</a>
+            <a href="my-projects.html">My Project</a>
+            <a href="browse.html">Search &amp; Browse</a>
+            <a href="my-requests.html">My Requests</a>
+            <a href="profile.html">Profile</a>
+        </nav>
+        <div class="user">
+            <div class="avatar">RY</div>
+            <div><strong>Razan Yasin</strong><small>Student</small></div>
+        </div>
+    </aside>
+
+    <main class="main">
+        <div class="topbar"><input type="search" placeholder="Search for project..." aria-label="Search for project"></div>
+
+        <header class="page-head">
+            <h1>Welcome, Razan</h1>
+            <p>Here's an overall view of your activity</p>
+        </header>
+
+        <section class="stats">
+            <a class="stat" href="my-projects.html"><span>My project</span><strong>1</strong></a>
+            <a class="stat" href="my-projects.html"><span>Published project</span><strong>0</strong></a>
+            <a class="stat" href="my-requests.html"><span>Pending request</span><strong>1</strong></a>
+        </section>
+
+        <section class="panel">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px"><h2 style="margin:0">My Project</h2><a class="btn" href="upload.html">Upload project</a></div>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>ID</th><th>Title</th><th>Status</th><th>Category</th><th>Submission date</th></tr></thead>
+                    <tbody>
+                        <tr><td>#001</td><td>Handwritten</td><td><span class="badge pending">Pending</span></td><td>AI</td><td>10/2/2025</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>You may also like</h2>
+            <ul class="similar">
+                <li><div><strong>Arabic Handwriting Recognition</strong><br><small>Artificial Intelligence</small></div><a class="btn ghost" href="#">View</a></li>
+                <li><div><strong>Document Image Classification</strong><br><small>Computer Vision</small></div><a class="btn ghost" href="#">View</a></li>
+            </ul>
+        </section>
+    </main>
+</div>
+<script src="nav.js?v=5"></script>
+</body>
+</html>

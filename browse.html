@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- gradvault-build:6 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GradVault | Search &amp; Browse</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="app.css?v=5">
+</head>
+<body>
+<div class="app">
+    <aside class="sidebar">
+        <img class="logo" src="image/cfb44c0c-25e2-4d2b-98bd-57812180bb26.png" alt="GradVault">
+        <nav class="nav">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="my-projects.html">My Project</a>
+            <a href="browse.html" class="active">Search &amp; Browse</a>
+            <a href="my-requests.html">My Requests</a>
+            <a href="profile.html">Profile</a>
+        </nav>
+        <div class="user">
+            <div class="avatar">RY</div>
+            <div><strong>Razan Yasin</strong><small>Student</small></div>
+        </div>
+    </aside>
+
+    <main class="main">
+        <div class="topbar"><input type="search" id="q" placeholder="Search for project..." aria-label="Search for project"></div>
+
+        <header class="page-head">
+            <h1>Search &amp; Browse</h1>
+            <p>Published graduation projects</p>
+        </header>
+
+        <form class="filters" id="filters" onsubmit="return false">
+            <select id="fCategory" aria-label="Category"><option value="">Category</option><option>Artificial Intelligence</option><option>Computer Vision</option><option>Networking</option><option>Software Engineering</option><option>Security</option><option>Databases</option></select>
+            <select id="fDepartment" aria-label="Department"><option value="">Department</option><option>Computer Science</option><option>Computer Engineering</option></select>
+            <select id="fSupervisor" aria-label="Supervisor"><option value="">Supervisor</option><option>Dr. Supervisor A</option><option>Dr. Supervisor B</option><option>Dr. Supervisor C</option></select>
+            <select id="fYear" aria-label="Year"><option value="">Year</option><option>2026</option><option>2025</option><option>2024</option><option>2023</option><option>2022</option></select>
+            <button class="btn" type="submit">Search</button>
+            <button class="btn ghost" type="button" id="reset">Reset</button>
+        </form>
+
+        <p class="result-count" id="resultCount" aria-live="polite"></p>
+
+        <section class="grid" id="browseGrid">
+            <article class="project" data-category="Artificial Intelligence" data-department="Computer Science" data-supervisor="Dr. Supervisor A" data-year="2025">
+                <span class="tag" style="align-self:flex-start">Artificial Intelligence</span>
+                <h3>Arabic Handwriting Recognition</h3>
+                <span class="meta">Computer Science · Dr. Supervisor A · 2025</span>
+                <p>Short overview of the project goes here, limited to a few lines...</p>
+                <a class="btn" href="project.html">View details</a>
+            </article>
+            <article class="project" data-category="Computer Vision" data-department="Computer Science" data-supervisor="Dr. Supervisor A" data-year="2024">
+                <span class="tag" style="align-self:flex-start">Computer Vision</span>
+                <h3>Document Image Classification</h3>
+                <span class="meta">Computer Science · Dr. Supervisor A · 2024</span>
+                <p>Short overview of the project goes here, limited to a few lines...</p>
+                <a class="btn" href="project.html">View details</a>
+            </article>
+            <article class="project" data-category="Networking" data-department="Computer Engineering" data-supervisor="Dr. Supervisor B" data-year="2024">
+                <span class="tag" style="align-self:flex-start">Networking</span>
+                <h3>Campus Network Monitoring</h3>
+                <span class="meta">Computer Engineering · Dr. Supervisor B · 2024</span>
+                <p>Short overview of the project goes here, limited to a few lines...</p>
+                <a class="btn" href="project.html">View details</a>
+            </article>
+            <article class="project" data-category="Computer Vision" data-department="Computer Engineering" data-supervisor="Dr. Supervisor B" data-year="2025">
+                <span class="tag" style="align-self:flex-start">Computer Vision</span>
+                <h3>Smart Attendance System</h3>
+                <span class="meta">Computer Engineering · Dr. Supervisor B · 2025</span>
+                <p>Short overview of the project goes here, limited to a few lines...</p>
+                <a class="btn" href="project.html">View details</a>
+            </article>
+            <article class="project" data-category="Security" data-department="Computer Science" data-supervisor="Dr. Supervisor C" data-year="2025">
+                <span class="tag" style="align-self:flex-start">Security</span>
+                <h3>Secure File Sharing Platform</h3>
+                <span class="meta">Computer Science · Dr. Supervisor C · 2025</span>
+                <p>Short overview of the project goes here, limited to a few lines...</p>
+                <a class="btn" href="project.html">View details</a>
+            </article>
+            <article class="project" data-category="Artificial Intelligence" data-department="Computer Science" data-supervisor="Dr. Supervisor A" data-year="2026">
+                <span class="tag" style="align-self:flex-start">Artificial Intelligence</span>
+                <h3>Course Advising Chatbot</h3>
+                <span class="meta">Computer Science · Dr. Supervisor A · 2026</span>
+                <p>Short overview of the project goes here, limited to a few lines...</p>
+                <a class="btn" href="project.html">View details</a>
+            </article>
+            <article class="project" data-category="Software Engineering" data-department="Computer Science" data-supervisor="Dr. Supervisor C" data-year="2023">
+                <span class="tag" style="align-self:flex-start">Software Engineering</span>
+                <h3>Hospital Appointment System</h3>
+                <span class="meta">Computer Science · Dr. Supervisor C · 2023</span>
+                <p>Short overview of the project goes here, limited to a few lines...</p>
+                <a class="btn" href="project.html">View details</a>
+            </article>
+            <article class="project" data-category="Networking" data-department="Computer Engineering" data-supervisor="Dr. Supervisor B" data-year="2023">
+                <span class="tag" style="align-self:flex-start">Networking</span>
+                <h3>IoT Greenhouse Controller</h3>
+                <span class="meta">Computer Engineering · Dr. Supervisor B · 2023</span>
+                <p>Short overview of the project goes here, limited to a few lines...</p>
+                <a class="btn" href="project.html">View details</a>
+            </article>
+            <article class="project" data-category="Artificial Intelligence" data-department="Computer Science" data-supervisor="Dr. Supervisor C" data-year="2026">
+                <span class="tag" style="align-self:flex-start">Artificial Intelligence</span>
+                <h3>Plagiarism Detection for Arabic Text</h3>
+                <span class="meta">Computer Science · Dr. Supervisor C · 2026</span>
+                <p>Short overview of the project goes here, limited to a few lines...</p>
+                <a class="btn" href="project.html">View details</a>
+            </article>
+            <article class="project" data-category="Databases" data-department="Computer Science" data-supervisor="Dr. Supervisor C" data-year="2022">
+                <span class="tag" style="align-self:flex-start">Databases</span>
+                <h3>Library Management Web App</h3>
+                <span class="meta">Computer Science · Dr. Supervisor C · 2022</span>
+                <p>Short overview of the project goes here, limited to a few lines...</p>
+                <a class="btn" href="project.html">View details</a>
+            </article>
+            <article class="project" data-category="Computer Vision" data-department="Computer Engineering" data-supervisor="Dr. Supervisor B" data-year="2026">
+                <span class="tag" style="align-self:flex-start">Computer Vision</span>
+                <h3>Traffic Sign Detection</h3>
+                <span class="meta">Computer Engineering · Dr. Supervisor B · 2026</span>
+                <p>Short overview of the project goes here, limited to a few lines...</p>
+                <a class="btn" href="project.html">View details</a>
+            </article>
+            <article class="project" data-category="Security" data-department="Computer Engineering" data-supervisor="Dr. Supervisor B" data-year="2025">
+                <span class="tag" style="align-self:flex-start">Security</span>
+                <h3>Network Intrusion Detection</h3>
+                <span class="meta">Computer Engineering · Dr. Supervisor B · 2025</span>
+                <p>Short overview of the project goes here, limited to a few lines...</p>
+                <a class="btn" href="project.html">View details</a>
+            </article>
+        </section>
+
+        <p class="empty" id="browseEmpty">No projects match your filters. Try a different search, or reset the filters.</p>
+        <nav class="pager" id="pager" aria-label="Pagination"></nav>
+    </main>
+</div>
+
+<script src="browse.js?v=5"></script>
+<script src="nav.js?v=5"></script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- gradvault-build:6 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GradVault | Manage Categories</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="app.css?v=5">
+</head>
+<body>
+<div class="app">
+    <aside class="sidebar">
+        <img class="logo" src="image/cfb44c0c-25e2-4d2b-98bd-57812180bb26.png" alt="GradVault">
+        <nav class="nav">
+            <a href="admin.html">Dashboard</a>
+            <a href="manage-users.html">Users</a>
+            <a href="manage-projects.html">Projects</a>
+            <a href="manage-categories.html" class="active">Categories</a>
+            <a href="browse.html">Search &amp; Browse</a>
+            <a href="requests.html">Requests</a>
+            <a href="profile.html">Profile</a>
+        </nav>
+        <div class="user">
+            <div class="avatar">AD</div>
+            <div><strong>Admin</strong><small>Administrator</small></div>
+        </div>
+    </aside>
+
+    <main class="main">
+        <header class="page-head">
+            <h1>Manage categories</h1>
+            <p>Add, rename, or remove the categories used to organize projects</p>
+        </header>
+
+        <section class="panel">
+            <h2>Add a category</h2>
+            <form class="cat-form" id="catForm" novalidate>
+                <div class="f">
+                    <label for="catName">Name</label>
+                    <input type="text" id="catName" placeholder="e.g. Robotics">
+                    <p class="err" id="catNameErr" role="alert"></p>
+                </div>
+                <div class="f">
+                    <label for="catDesc">Description <span style="color:var(--muted);font-weight:400">(optional)</span></label>
+                    <input type="text" id="catDesc" placeholder="One line about this category">
+                </div>
+                <div class="f"><span class="lbl-spacer" aria-hidden="true">&nbsp;</span><button type="submit" class="btn lg">Add category</button></div>
+            </form>
+        </section>
+
+        <section class="panel">
+            <div class="toolbar">
+                <input type="search" id="search" placeholder="Search categories..." aria-label="Search categories">
+                <span class="count" id="count"></span>
+            </div>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Category</th><th>Description</th><th>Projects</th><th>Actions</th></tr></thead>
+                    <tbody id="catRows">
+                        <tr data-count="42">
+                            <td><strong>Artificial Intelligence</strong></td><td>Machine learning, deep learning, NLP</td><td>42</td>
+                            <td><div class="row-actions">
+                                <button class="btn ghost sm edit-cat" type="button">Edit</button>
+                                <button class="btn danger sm delete-cat" type="button">Delete</button>
+                            </div></td>
+                        </tr>
+                        <tr data-count="25">
+                            <td><strong>Software Engineering</strong></td><td>Design, testing, and development of software systems</td><td>25</td>
+                            <td><div class="row-actions">
+                                <button class="btn ghost sm edit-cat" type="button">Edit</button>
+                                <button class="btn danger sm delete-cat" type="button">Delete</button>
+                            </div></td>
+                        </tr>
+                        <tr data-count="21">
+                            <td><strong>Computer Vision</strong></td><td>Image and video analysis</td><td>21</td>
+                            <td><div class="row-actions">
+                                <button class="btn ghost sm edit-cat" type="button">Edit</button>
+                                <button class="btn danger sm delete-cat" type="button">Delete</button>
+                            </div></td>
+                        </tr>
+                        <tr data-count="18">
+                            <td><strong>Networking</strong></td><td>Network design, monitoring, and IoT</td><td>18</td>
+                            <td><div class="row-actions">
+                                <button class="btn ghost sm edit-cat" type="button">Edit</button>
+                                <button class="btn danger sm delete-cat" type="button">Delete</button>
+                            </div></td>
+                        </tr>
+                        <tr data-count="12">
+                            <td><strong>Security</strong></td><td>Cybersecurity and cryptography</td><td>12</td>
+                            <td><div class="row-actions">
+                                <button class="btn ghost sm edit-cat" type="button">Edit</button>
+                                <button class="btn danger sm delete-cat" type="button">Delete</button>
+                            </div></td>
+                        </tr>
+                        <tr data-count="10">
+                            <td><strong>Databases</strong></td><td>Data modeling, storage, and retrieval</td><td>10</td>
+                            <td><div class="row-actions">
+                                <button class="btn ghost sm edit-cat" type="button">Edit</button>
+                                <button class="btn danger sm delete-cat" type="button">Delete</button>
+                            </div></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="empty" id="empty">No categories found.</p>
+            </div>
+        </section>
+    </main>
+</div>
+
+<dialog id="confirm">
+    <h3 id="confirmTitle"></h3>
+    <p id="confirmText"></p>
+    <div class="row-actions">
+        <button class="btn ghost" type="button" id="confirmNo">Cancel</button>
+        <button class="btn danger-fill" type="button" id="confirmYes">Confirm</button>
+    </div>
+</dialog>
+
+<dialog id="editDlg">
+    <h3>Edit category</h3>
+    <div class="f">
+        <label for="editName">Name</label>
+        <input type="text" id="editName">
+        <p class="err" id="editNameErr" role="alert"></p>
+    </div>
+    <div class="f">
+        <label for="editDesc">Description</label>
+        <input type="text" id="editDesc">
+    </div>
+    <div class="row-actions">
+        <button class="btn ghost" type="button" id="editCancel">Cancel</button>
+        <button class="btn" type="button" id="editSave">Save</button>
+    </div>
+</dialog>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="manage.js?v=5"></script>
+<script src="categories.js?v=5"></script>
+<script src="nav.js?v=5"></script>
+</body>
+</html>
